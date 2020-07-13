@@ -1,0 +1,78 @@
+#+TITLE:     Notes on SICP
+#+AUTHOR:    Martín Rodriguez
+#+EMAIL:     mtrpdx@gmail.com
+
+* Chapter 1
+** [X] Programming in Lisp
+*** computational process
+*** recursion equations
+"Recursive Functions of Symbolic Expressions and Their Computation by Machine" (McCarthy 1960)
+*** data objects: atoms and lists
+*** procedures can be manipulated as data
+** [ ] 1-1 The Elements of Programming
+*** Ways to form complex ideas from simple ideas
+**** primitive expressions:
+represent the simplest entities the language is concerned with
+**** means of combination:
+how compound elements are built from simpler ones
+**** means of abstraction:
+how compound elements can be named and manipulated as units
+*** Use `define' to name variables
+*** global environment:
+"memory" that keeps track of name-object pairs for symbols/variables
+*** recursion is an inherent part of evaluation
+*** tree accumulation:
+"percolate values upward"
+*** syntactic sugar:
+special syntactic forms that are convenient alternative surface structures for things that can be written in more uniform ways
+*** procedure definition:
+(define (<NAME> <FORMAL PARAMETERS>) <BODY>)
+*** "substitution model" for procedure application
+*** Stoy 1977 for substitution reference
+*** substitution is actually accomplished by using a local environment for the formal parameters
+*** evaluation (applicative-order):
+interpreter first evaluates the operator and operands and then applies the resulting procedure to the resulting arguments
+*** alternative model for evaluation (normal-order):
+do not evaluate operands until their values are needed; instead first substitute operand expressions for parameters until an expression involving only primitive operators is obtained, then perform evaluation
+*** Lisp uses applicative-order evaluation
+*** Conditional expressions (each <E> may be a sequence of expressions)
+(cond (<P1> <E1>)
+      (<P2> <E2>)
+      ...
+      (<PN> <EN>)
+
+where each (<P> <E>) is a "clause," each <P> is a predicate, and each <E> is a "consequent expression"
+*** predicate:
+procedure that returns true or false or an expression that evaluates to true or false
+*** if (used when there are precisely two cases, <P> and <E> must be single expressions):
+(if <PREDICATE> <CONSEQUENT> <ALTERNATIVE>)
+** [ ] 1-2 Procedures and the Processes they Generate
+** [ ] 1-3 Formulating Abstractions with Higher-Order Procedures
+* Chapter 2
+** [ ] Building Abstractions with Data
+** [ ] Introduction to Data Abstraction
+** [ ] Hierarchical Data and the Closure Property
+** [ ] Symbolic Data
+** [ ] Multiple Representations for Abstract Data
+** [ ] Systems with Generic Operations
+* Chapter 3
+** [ ] Modularity, Objects, and State
+** [ ] Assignment and Local State
+** [ ] The Environment Model of Evaluation
+** [ ] Modeling with Mutable Data
+** [ ] Concurrency: Time Is of the Essence
+** [ ] Streams
+* Chapter 4
+** [ ] Metalinguistic Abstraction
+** [ ] The Metacircular Evaluator
+** [ ] Variations on a Scheme -- Lazy Evaluation
+** [ ] Variations on a Scheme -- Nondeterministic Computing
+** [ ] Logic Programming
+** [ ] Implementing the Query System
+* Chapter 5
+** [ ] Computing with Register Machines
+** [ ] Designing Register Machines
+** [ ] A Register-Machine Simulator
+** [ ] Storage Allocation and Garbage Collection
+** [ ] Registers and Operations
+** [ ] An Overview of the Compiler
