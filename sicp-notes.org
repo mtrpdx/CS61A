@@ -46,6 +46,9 @@ where each (<P> <E>) is a "clause," each <P> is a predicate, and each <E> is a "
 procedure that returns true or false or an expression that evaluates to true or false
 *** if (used when there are precisely two cases, <P> and <E> must be single expressions):
 (if <PREDICATE> <CONSEQUENT> <ALTERNATIVE>)
+*** In math: concerned with declarative knowledge (what is)
+*** In computer science: concerned with imperative knowledge (how to)
+*** Newton's method of successive approximations to compute square roots
 ** [ ] 1-2 Procedures and the Processes they Generate
 ** [ ] 1-3 Formulating Abstractions with Higher-Order Procedures
 * Chapter 2
