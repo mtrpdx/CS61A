@@ -9,7 +9,7 @@
 "Recursive Functions of Symbolic Expressions and Their Computation by Machine" (McCarthy 1960)
 *** data objects: atoms and lists
 *** procedures can be manipulated as data
-** [ ] 1-1 The Elements of Programming
+** [X] 1-1 The Elements of Programming
 *** Ways to form complex ideas from simple ideas
 **** primitive expressions:
 represent the simplest entities the language is concerned with
@@ -48,8 +48,36 @@ procedure that returns true or false or an expression that evaluates to true or 
 (if <PREDICATE> <CONSEQUENT> <ALTERNATIVE>)
 *** In math: concerned with declarative knowledge (what is)
 *** In computer science: concerned with imperative knowledge (how to)
-*** Newton's method of successive approximations to compute square roots
+*** Newton's method of successive approximations to compute square root
+*** Floating-point arithmetic
+Ulps: units in the last place, a way to measure floating point error from values calculated to infinite precision
+relative error: Difference between floating point number and the real number it is approximating, divided by the real number
+Wobble: Relative error corresponding to 0.5 ulp varies by a factor of β
+Machine epsilon: relative error is bounded by e
+In general, when the base is β, a fixed relative error expressed in ulps can wobble by a factor of up to β. A fixed error of 0.5 ulps results in a relative error that can wobble by β.
+Contaminated digits are about log Β n
+Guard digits: digit used to protect against the rightmost digit getting shifted off in calculations
+Without a guard digit, the relative error committed when subtracting two nearby quantities can be very large.
+Catastrophic cancellation: occurs when operands are subject to rouding errors
+Benign cancellation: occurs when subtracting exactly known quantities (x and y have no rounding error)
+*** Procedural abstraction:
+abstraction of a procedure with regards to another calling procedure so that it appears to be a "black box"
+*** Parameter names:
+local to their respective procedures. The procedure definition "binds" its formal parameters
+*** Bound vs. free variables:
+bound variable: meaning of procedure is independent from the names of bound variables
+free variable: meaning of procedure is dependent on names of free variables
+*** Lexical scoping:
+Allow bound variables to be free variables in the internal definitions of procedures, so that the variables get their value from the argument with which the enclosing procedure is called.
+
 ** [ ] 1-2 Procedures and the Processes they Generate
+*** Linear iterative processes vs linear recursive processes
+Recursive processes look like expansion (deferred operations) followed by a contraction (performed operations) when viewed with the substitution model
+Iterative processes do not expand/contract and its state can be summarized by a fixed number of "state variables" and a rule to describe how the state variables should be updated. An optional end test is often used to decide when to terminate.
+*** Tail recursion
+The scheme we are using is "tail-recursive," meaning it executes iterative processes in constant space, even if the iterative process is described by a recursive procedure.
+*** Ackermann's function
+*** Tree recursion
 ** [ ] 1-3 Formulating Abstractions with Higher-Order Procedures
 * Chapter 2
 ** [ ] Building Abstractions with Data

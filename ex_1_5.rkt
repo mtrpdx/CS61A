@@ -1,4 +1,4 @@
- simply-scheme
+#lang simply-scheme
 
 (define (p) (p))
 
