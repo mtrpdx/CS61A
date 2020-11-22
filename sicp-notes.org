@@ -89,6 +89,10 @@ example:
 (let ((a 2)
       (b 3))
       (+ a b))
+Any (let) expression can be converted into an equivalent (lambda)
+expression using the equation:
+(let ((x <expr1>)) <expr2>)
+==> ((lambda (x) <expr2>) <expr1>)
 *** half-interval method
 **** Used for finding roots of a continuous
 **** functionhalf_interval_method.rkt
@@ -97,6 +101,7 @@ example:
 **** Apply f repeatedly f(x), f(f(x)), (f(f(f(x)))), etc. until the value does not change muchbetween applications
 **** fixed_point.rkt
 **** "average damping": technique of averaging successive approximations to a solution to aid the convergence of fixed-point searches
+*** Newton's method is the use of the fixed-point method to approximate a solution of the equation by finding a fixed point of the function f
 * Chapter 2
 ** [ ] Building Abstractions with Data
 ** [ ] Introduction to Data Abstraction

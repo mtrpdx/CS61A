@@ -177,3 +177,47 @@
    (lambda (guess)
      (average guess (/ x guess))))
   1))
+
+;; 2.
+; Original (squares) procedure
+(define (squares sent)
+  ; Takes sentence of numbers as input, output is sentence of squares of
+  ; numbers
+  (define (square x) (* x x))
+  (if (empty? sent)
+      '()
+      (sentence
+       (square (first sent)) (squares (bf sent)))))
+
+(define (every f sent)
+  ; Generic procedure to apply arbitrary action f to every element in sentence
+  ; sent
+  (if (empty? sent)
+      '()
+      (sentence
+        (f (first sent)) (every f (bf sent)))))
+
+;; Extra
+; Original recursive (fact) function (our goal is to derive a (fact) function
+; without any primitives other than (lambda) and, most importantly, no (define))
+(define (fact n)
+  (if (= n 0)
+      1
+      (* n (fact (- n 1)))))
+
+; Procedure without defines or primitives other than lambda. It returns a
+; function, so it must be called wrapped with a value to actually compute
+((lambda (f) (lambda (n) (f f n)))
+ (lambda (self x)
+   (if (= x 0)
+       1
+       (* x (self self (- x 1))))))
+
+; To compute (fact 9):
+(((lambda (f) (lambda (n) (f f n)))
+ (lambda (self x)
+   (if (= x 0)
+       1
+       (* x (self self (- x 1))))))
+ 9)
+; 362880
